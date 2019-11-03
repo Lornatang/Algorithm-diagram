@@ -16,16 +16,35 @@
 
 
 def binary_search(lists, item):
-  low = 0
-  high = len(lists) - 1
+  """ implements binary search for list
+
+  Args:
+    lists (list): Python List
+    item (int, float, str): Element of list
+
+  Returns:
+    Elem exist return `elem index` for list, else return `None`
+
+  Examples:
+    >>> Lists = [1, 3, 5, 7, 9]
+    >>> print(binary_search(my_list, 3))
+    1
+    >>> print(binary_search(my_list, -1))
+    None
+
+  """
+  low = 0  # first index
+  high = len(lists) - 1  # end index
   while low <= high:
-    mid = (low + high) // 2
+    mid = (low + high) // 2  # get list middle index
     guess = lists[mid]
     if guess == item:
       return mid
+    # if guese elem > item, the highest element index is sub one
     if guess > item:
       high = mid - 1
     else:
+      # if guese elem > item, the lowest element index is add one
       low = mid + 1
 
   return None
@@ -33,5 +52,5 @@ def binary_search(lists, item):
 
 my_list = [1, 3, 5, 7, 9]
 
-print(binary_search(my_list, 3))
-print(binary_search(my_list, -1))
+print(binary_search(my_list, 3))  # 1
+print(binary_search(my_list, -1))  # None
