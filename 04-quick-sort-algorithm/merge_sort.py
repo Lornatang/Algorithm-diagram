@@ -13,8 +13,8 @@
 # ==============================================================================
 
 
-def quick_sort(arr):
-  """ Classic fast sorting algorithm, using recursive methods to achieve.
+def merge_sort(arr):
+  """ Classic merge sorting algorithm, using recursive methods to achieve.
 
   Args:
     arr: Unsort array.
@@ -23,19 +23,30 @@ def quick_sort(arr):
     Sort array.
 
   Examples:
-    >>> print(quick_sort([10, 5, 2, 3]))
+    >>> print(merge_sort([10, 5, 2, 3]))
     [2, 3, 5, 10]
 
   """
   if len(arr) < 2:
     return arr
   else:
-    pivot = arr[0]
-    less = [i for i in arr[1:] if i <= pivot]
-
-    greater = [i for i in arr[1:] if i > pivot]
-
-    return quick_sort(less) + [pivot] + quick_sort(greater)
+    mid = int(len(arr) / 2)
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return merge(left, right)
 
 
-print(quick_sort([10, 5, 2, 3]))
+def merge(left, right):
+  result = []
+  i = 0
+  j = 0
+  while i < len(left) and j < len(right):
+    if left[i] <= right[j]:
+      result.append(left[i])
+      i += 1
+    else:
+      result.append(right[j])
+      j += 1
+  result += left[i:]
+  result += right[j:]
+  return result

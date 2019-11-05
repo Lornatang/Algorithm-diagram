@@ -13,29 +13,11 @@
 # ==============================================================================
 
 
-def quick_sort(arr):
-  """ Classic fast sorting algorithm, using recursive methods to achieve.
+book = dict()
+book["apple"] = 0.67
+book["milk"] = 1.49
+book["avocado"] = 1.49
 
-  Args:
-    arr: Unsort array.
+print(book)
 
-  Returns:
-    Sort array.
-
-  Examples:
-    >>> print(quick_sort([10, 5, 2, 3]))
-    [2, 3, 5, 10]
-
-  """
-  if len(arr) < 2:
-    return arr
-  else:
-    pivot = arr[0]
-    less = [i for i in arr[1:] if i <= pivot]
-
-    greater = [i for i in arr[1:] if i > pivot]
-
-    return quick_sort(less) + [pivot] + quick_sort(greater)
-
-
-print(quick_sort([10, 5, 2, 3]))
+print(book["avocado"])

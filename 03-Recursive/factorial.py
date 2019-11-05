@@ -17,6 +17,19 @@
 
 
 def fact(x):
+  """ The famous Fibonacci sequence on the Internet
+
+  Args:
+    x: Maximum number of columns.
+
+  Returns:
+    number
+
+  Examples:
+    >>> print(fact(5))
+    120
+
+  """
   if x == 1:
     return 1
   else:
@@ -24,4 +37,25 @@ def fact(x):
     return x * fact(x - 1)
 
 
+def factorial(x, result):
+  """ Famous Fibonacci sequence, using tail recursion.
+
+  Args:
+    x: Maximum number of columns.
+
+  Returns:
+    number
+
+  Examples:
+    >>> print(factorial(5, 1))
+    120
+
+  """
+  if x == 1:
+    return result
+  else:
+    return factorial(x - 1, x * result)
+
+
 print(fact(5))
+print(factorial(5, 1))

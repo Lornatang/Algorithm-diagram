@@ -13,8 +13,8 @@
 # ==============================================================================
 
 
-def quick_sort(arr):
-  """ Classic fast sorting algorithm, using recursive methods to achieve.
+def bubble_sort(arr):
+  """ Classic bubble sorting algorithm, using recursive methods to achieve.
 
   Args:
     arr: Unsort array.
@@ -23,19 +23,14 @@ def quick_sort(arr):
     Sort array.
 
   Examples:
-    >>> print(quick_sort([10, 5, 2, 3]))
+    >>> print(bubble_sort([10, 5, 2, 3]))
     [2, 3, 5, 10]
 
   """
-  if len(arr) < 2:
-    return arr
-  else:
-    pivot = arr[0]
-    less = [i for i in arr[1:] if i <= pivot]
-
-    greater = [i for i in arr[1:] if i > pivot]
-
-    return quick_sort(less) + [pivot] + quick_sort(greater)
-
-
-print(quick_sort([10, 5, 2, 3]))
+  for i in range(len(arr) - 1):
+    for j in range(i, len(arr)):
+      if arr[i] > arr[j]:
+        temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+  return arr
